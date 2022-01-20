@@ -5,8 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hola Flask!</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
+        <img src="{{ url_for('static', filename='images/flask-logo.png') }}" alt="Flask Logo" />
         <h3>Mi plantilla Flask</h3>
         <p>Frase: {{ frase }}</p>
         <p>Veces: {{ veces }}</p>
@@ -18,5 +20,6 @@
         {% if frase == "hola" %}
         <p>La frase dice hola</p>
         {% endif %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
     </body>
 </html>
