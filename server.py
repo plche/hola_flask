@@ -1,10 +1,12 @@
-from flask import Flask  # Importa Flask para permitirnos crear nuestra aplicación
+from flask import Flask, render_template  # agregado render_template!  # Importa Flask para permitirnos crear nuestra aplicación
 
 app = Flask(__name__)    # Crea una nueva instancia de la clase Flask llamada "app"
 
 @app.route('/')          # El decorador "@" asocia esta ruta con la función inmediatamente siguiente
 def hola_mundo():
-    return '¡Hola Mundo!'  # Devuelve la cadena '¡Hola Mundo!' como respuesta
+    # En lugar de devolver una cadena, 
+    # devolveremos el resultado del método render_template, pasando el nombre de nuestro archivo HTML
+    return render_template('index.html', frase = "hola", veces = 5) # 2 nuevos argumentos nombrados!
 
 @app.route('/success')
 def success():
