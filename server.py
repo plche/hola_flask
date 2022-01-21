@@ -39,5 +39,16 @@ def repeat(name, id):
 def page_not_found(error):
     return "¡Lo siento! No hay respuesta. Inténtalo otra vez.", 404
 
+@app.route('/lists')
+def render_lists():
+    # Muy pronto, obtendremos datos de una base de datos, pero por ahora, estamos codificando datos
+    students_info = [
+       {'name' : 'Michael', 'age' : 35},
+       {'name' : 'John', 'age' : 30 },
+       {'name' : 'Mark', 'age' : 25},
+       {'name' : 'KB', 'age' : 27}
+    ]
+    return render_template("lists.html", random_numbers = [3,1,5], students = students_info)
+
 if __name__ == "__main__":   # Asegúrate de que este archivo se esté ejecutando directamente y no desde un módulo diferente    
     app.run(debug = True)    # Ejecuta la aplicación en modo de depuración
